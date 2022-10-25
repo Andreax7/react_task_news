@@ -1,8 +1,8 @@
 import './styles/App.scss';
 import { isMobile } from "react-device-detect";
 
-import Header from './header.js';
-import SearchBar from './searchBar';
+import Header from './snippets/header.js';
+import SearchBar from './snippets/searchBar';
 import Navigation from './components/navigation';
 import AllNews from './components/allNews';
 import LatestNews from './components/latestNews';
@@ -21,6 +21,7 @@ function App() {
   
     
   useEffect(()=>{
+    
     const fetchNews = async() => {
       const  myKey =`${process.env.REACT_APP_API_KEY1}`;
       var path = navigateTo === undefined ? "https://api.nytimes.com/svc/topstories/v2/home.json?api-key=" + myKey :"https://api.nytimes.com/svc/topstories/v2/"+ navigateTo + ".json?api-key=" + myKey ;
@@ -38,10 +39,7 @@ function App() {
         })
     } 
     fetchNews();   
-    console.log('render again ', addToFav)
   }, [navigateTo, searchRes, addToFav]); // Change allNews view when click on navigation, add to favourites or search button
-
-console.log(isMobile, toggleMobNav)
 
   return (
     <div className="App">
@@ -52,26 +50,25 @@ console.log(isMobile, toggleMobNav)
         isMobile ? <Navigation setNav={setNav} toggleMobNav={toggleMobNav} setMobNav={setMobNav}/> :
                    <Navigation setNav={setNav} toggleMobNav={true}/>
       }
-      {
-        !toggleMobNav &&
-      <>
+    
         <div id="tag">
               <h3>News</h3>
         </div>
-
+{
+            isMobile && showNews && !toggleMobNav &&
+            <>
           <div className='mobile-news'> 
             <button id={activeSection === 0 ? "active2" : "active1"} onClick={()=>setActive(0)}> Featured </button> 
             <button id={activeSection === 1 ? "active2" : "active1"} onClick={()=>setActive(1)}> Latest </button>
             <button id={activeSection === 3 ? "active2" : "active1"} onClick={()=>setActive(3)}> Favorites </button>
           </div>
-          {
-            isMobile && showNews &&
+          
             <div className="content">
             {activeSection === 0 && <AllNews news={showNews} setFavorites={setFavorites}/> }
             {activeSection === 1 && <LatestNews/>}
             {activeSection === 3 && <Favorites addToFav={addToFav} setFavorites={setFavorites}/> }
             </div>
-          }
+         </> }
           {
             !isMobile && 
                     <div className="content">         
@@ -88,9 +85,7 @@ console.log(isMobile, toggleMobNav)
 
           }
           
-      </>
          
-      }
     </div>
     
   );

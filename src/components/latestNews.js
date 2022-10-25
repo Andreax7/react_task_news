@@ -7,17 +7,14 @@ import '../styles/latest.scss'
 export default function LatestNews() {
 
   const [showLatest, setLatest] = useState();
-  const [pageNo, setNewPage] = useState(5);
+  const [pageNo, setNewPage] = useState(6);
   
-  //useLatest(pageNo, setLatest);
 
   const handleScroll = e => {
     let element = e.target;
-    console.log(pageNo);
-    if (element.scrollHeight - element.scrollTop < element.clientHeight+1) {
+    if (element.scrollHeight - element.scrollTop < element.clientHeight+2) {
       //load more results at end of scroll
         let page = pageNo + 2;
-
         setNewPage(page);
       }
       
@@ -35,8 +32,7 @@ export default function LatestNews() {
       .then(res => {
         let results = res.articles;
         if(showLatest === undefined) setLatest(results);
-       else {setLatest(showLatest=>{
-        return [new Set([showLatest, results] )]});}
+       else {setLatest([...results])}
        
       })                            
        .catch(err => {
@@ -60,7 +56,7 @@ export default function LatestNews() {
             showLatest.map((val, key)=>
                     <div className='latestWindow' key={key} >
                           <p id='category2'>{val.publishedAt}</p>
-                          <h4 id='title'> {val.title}</h4> {key}   
+                          <h4 id='title'> {val.title}</h4>  
                           <hr/>          
                     </div>
                 )

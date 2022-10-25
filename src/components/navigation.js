@@ -7,6 +7,7 @@ import { IoNewspaperOutline } from 'react-icons/io5'
 
 export default function Navigation({setNav, setMobNav, toggleMobNav}) {
   const [active, setActive] = useState(0);
+  
 
   function showNav(){
     console.log(toggleMobNav);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './styles/searchBar.scss'
+import '../styles/searchBar.scss'
 
 export default function SearchBar({setNews, setSearchRes}) {
 

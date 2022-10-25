@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Pagination } from '../pagination';
+import { Pagination } from '../snippets/pagination';
 import '../styles/allNews.scss'
 
 export default function AllNews({news, setFavorites}) {

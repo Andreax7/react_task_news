@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './styles/header.scss';
+import '../styles/header.scss';
 
 function Header() {
   const [showHeader, setHeader] = useState(true);
