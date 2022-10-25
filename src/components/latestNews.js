@@ -15,6 +15,7 @@ export default function LatestNews() {
     if (element.scrollHeight - element.scrollTop < element.clientHeight+2) {
       //load more results at end of scroll
         let page = pageNo + 2;
+        if(page > 100) return;
         setNewPage(page);
       }
       
