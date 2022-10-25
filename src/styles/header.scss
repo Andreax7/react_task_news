@@ -1,0 +1,92 @@
+$headerTxtColor: #FFFFFF;
+$headerBackgrColor: linear-gradient(180deg, #BB1E1E 71.29%, #B21919 99.95%);
+$headerFont:'Inter', sans-serif;
+
+.App-header {
+  position: absolute;
+  display: inline-block;
+  height: 60px;
+  width: 1500px;
+  margin: 0;
+  padding: 0;
+  background-color: #BB1E1E;
+  padding-left:30px;
+  top:0;
+}
+
+ .headerText1 {
+  margin: 0;
+  font-family: $headerFont;
+  font-weight: bolder;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: -0.136px;
+
+  color: $headerTxtColor;
+  position: absolute;
+  width: 237px;
+  height: 21px;
+  left: 170px;
+  top: 19px;
+}
+.headerText2 {
+  margin: 0;
+  font-family: $headerFont;
+  font-weight: lighter;
+  color: $headerTxtColor;
+  font-size: 14px;
+  letter-spacing: -0.119px;
+  line-height: 21px;
+  position: absolute;
+  width: 350px;
+  height: 21px;
+  left: 453px;
+  top: 19px;
+}
+.headerText3{
+  margin: 0;
+  font-family: $headerFont;
+  font-weight: bolder;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: -0.136px;
+  cursor: pointer;
+
+  color: $headerTxtColor;
+  position: absolute;
+  width: 237px;
+  height: 21px;
+  left: 77%;
+  top: 19px;
+  
+}
+
+.headerBtn {
+  margin: 0;
+  background: $headerTxtColor;
+  position: absolute;
+  width: 69px;
+  height: 40px;
+  top: 10px;
+  left:70%;
+  border: none;
+  border-radius:8px;
+  font-weight: bolder;
+  font-family: $headerFont;
+  font-size: 14px;
+  line-height: 20px;
+  cursor: pointer;
+  
+  /* identical to box height, or 143% */
+  text-align: center;
+  text-transform: uppercase; 
+  color: #1D1D1B;
+
+}
+
+@media screen and (max-width: 450px) {
+  .App-header{
+    display: none;
+  }
+
+}
